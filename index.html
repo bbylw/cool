@@ -1,4 +1,5 @@
-<html><head><base href="https://hypernav.tech"><title>HyperNav - Your AI-Enhanced Navigation Hub</title>
+
+<html><head><base href="https://hypernav.tech"><title>HyperNav - Your Global Web Navigator</title>
 <style>
   :root {
     --background-color: #0F1722;
@@ -6,7 +7,8 @@
     --accent-color: #3498db;
     --hover-color: #2980b9;
     --tile-size: 120px;
-    --gap-size: 15px;
+    --gap-size: 10px;
+    --sidebar-width: 220px;
   }
   
   body, html {
@@ -16,12 +18,15 @@
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
   }
   
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: margin-right 0.3s ease-in-out;
   }
   
   header {
@@ -78,7 +83,7 @@
   
   .categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
   }
   
@@ -97,7 +102,7 @@
   
   .links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--tile-size), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: var(--gap-size);
   }
   
@@ -105,14 +110,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
     color: var(--text-color);
     background-color: #2c3e50;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
-    aspect-ratio: 1;
+    text-align: center;
   }
   
   .link:hover {
@@ -121,13 +125,81 @@
   }
   
   .link i {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
   }
   
   .link span {
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: rgba(28, 40, 51, 0.8);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    transform: translateX(100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar-toggle:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 40px;
+  }
+  
+  .sidebar li {
+    margin: 10px 0;
+  }
+  
+  .sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    color: var(--accent-color);
+    background-color: rgba(52, 152, 219, 0.1);
   }
   
   @media (max-width: 768px) {
@@ -150,6 +222,26 @@
     .categories {
       grid-template-columns: 1fr;
     }
+    
+    .links {
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    }
+    
+    .link {
+      padding: 8px;
+    }
+    
+    .link i {
+      font-size: 1.2rem;
+    }
+    
+    .link span {
+      font-size: 0.7rem;
+    }
+    
+    .sidebar {
+      width: 100%;
+    }
   }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -157,49 +249,61 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+  <button class="sidebar-toggle" id="sidebar-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
   <div class="container">
     <header>
       <h1>HyperNav</h1>
-      <p class="subtitle">Your AI-Enhanced Navigation Hub</p>
+      <p class="subtitle">Your Global Web Navigator</p>
     </header>
     
     <div class="search-container">
-      <input type="text" id="search-input" placeholder="Search or enter URL">
+      <input type="text" id="search-input" placeholder="搜索或输入网址">
       <button id="search-button">Go</button>
     </div>
-    
+
     <div class="categories">
-      <div class="category">
-        <h2>搜索引擎</h2>
+      <div class="category" id="search">
+        <h2>搜索与信息</h2>
         <div class="links">
           <a href="https://www.google.com" class="link">
-            <i class="fas fa-search"></i>
+            <i class="fab fa-google"></i>
             <span>Google</span>
           </a>
-          <a href="https://www.bing.com" class="link">
-            <i class="fas fa-search"></i>
-            <span>Bing</span>
+          <a href="https://www.youtube.com" class="link">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.wikipedia.org" class="link">
+            <i class="fab fa-wikipedia-w"></i>
+            <span>Wikipedia</span>
           </a>
           <a href="https://www.baidu.com" class="link">
             <i class="fas fa-paw"></i>
             <span>百度</span>
           </a>
+          <a href="https://www.yahoo.com" class="link">
+            <i class="fab fa-yahoo"></i>
+            <span>Yahoo</span>
+          </a>
+          <a href="https://www.bing.com" class="link">
+            <i class="fas fa-search"></i>
+            <span>Bing</span>
+          </a>
+          <a href="https://www.yandex.ru" class="link">
+            <i class="fas fa-y"></i>
+            <span>Yandex</span>
+          </a>
           <a href="https://duckduckgo.com" class="link">
             <i class="fas fa-duck"></i>
             <span>DuckDuckGo</span>
           </a>
-          <a href="https://www.ecosia.org" class="link">
-            <i class="fas fa-tree"></i>
-            <span>Ecosia</span>
-          </a>
-          <a href="https://yandex.com" class="link">
-            <i class="fas fa-globe"></i>
-            <span>Yandex</span>
-          </a>
         </div>
       </div>
       
-      <div class="category">
+      <div class="category" id="social-media">
         <h2>社交媒体</h2>
         <div class="links">
           <a href="https://www.facebook.com" class="link">
@@ -218,77 +322,172 @@
             <i class="fab fa-linkedin-in"></i>
             <span>LinkedIn</span>
           </a>
-          <a href="https://www.tiktok.com" class="link">
-            <i class="fab fa-tiktok"></i>
-            <span>TikTok</span>
-          </a>
           <a href="https://www.reddit.com" class="link">
             <i class="fab fa-reddit-alien"></i>
             <span>Reddit</span>
           </a>
-        </div>
-      </div>
-      
-      <div class="category">
-        <h2>实用工具</h2>
-        <div class="links">
-          <a href="https://translate.google.com" class="link">
-            <i class="fas fa-language"></i>
-            <span>Google翻译</span>
+          <a href="https://www.tiktok.com" class="link">
+            <i class="fab fa-tiktok"></i>
+            <span>TikTok</span>
           </a>
-          <a href="https://www.wolframalpha.com" class="link">
-            <i class="fas fa-square-root-alt"></i>
-            <span>Wolfram Alpha</span>
+          <a href="https://www.pinterest.com" class="link">
+            <i class="fab fa-pinterest-p"></i>
+            <span>Pinterest</span>
           </a>
-          <a href="https://www.calculator.net" class="link">
-            <i class="fas fa-calculator"></i>
-            <span>在线计算器</span>
+          <a href="https://www.whatsapp.com" class="link">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
           </a>
-          <a href="https://www.speedtest.net" class="link">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>网速测试</span>
-          </a>
-          <a href="https://www.timeanddate.com" class="link">
-            <i class="fas fa-clock"></i>
-            <span>时间日期</span>
-          </a>
-          <a href="https://www.wikihow.com" class="link">
-            <i class="fas fa-book-open"></i>
-            <span>WikiHow</span>
+          <a href="https://www.snapchat.com" class="link">
+            <i class="fab fa-snapchat-ghost"></i>
+            <span>Snapchat</span>
           </a>
         </div>
       </div>
       
-      <div class="category">
-        <h2>科技资讯</h2>
+      <div class="category" id="ecommerce">
+        <h2>电商与购物</h2>
         <div class="links">
-          <a href="https://www.techcrunch.com" class="link">
-            <i class="fas fa-microchip"></i>
-            <span>TechCrunch</span>
+          <a href="https://www.amazon.com" class="link">
+            <i class="fab fa-amazon"></i>
+            <span>Amazon</span>
           </a>
-          <a href="https://www.wired.com" class="link">
-            <i class="fas fa-plug"></i>
-            <span>Wired</span>
+          <a href="https://www.ebay.com" class="link">
+            <i class="fab fa-ebay"></i>
+            <span>eBay</span>
           </a>
-          <a href="https://www.theverge.com" class="link">
+          <a href="https://www.aliexpress.com" class="link">
+            <i class="fas fa-shopping-bag"></i>
+            <span>AliExpress</span>
+          </a>
+          <a href="https://www.walmart.com" class="link">
+            <i class="fas fa-store"></i>
+            <span>Walmart</span>
+          </a>
+          <a href="https://www.etsy.com" class="link">
+            <i class="fab fa-etsy"></i>
+            <span>Etsy</span>
+          </a>
+          <a href="https://www.rakuten.com" class="link">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Rakuten</span>
+          </a>
+          <a href="https://www.taobao.com" class="link">
+            <i class="fas fa-shopping-basket"></i>
+            <span>Taobao</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="category" id="entertainment">
+        <h2>娱乐与流媒体</h2>
+        <div class="links">
+          <a href="https://www.netflix.com" class="link">
+            <i class="fas fa-film"></i>
+            <span>Netflix</span>
+          </a>
+          <a href="https://www.twitch.tv" class="link">
+            <i class="fab fa-twitch"></i>
+            <span>Twitch</span>
+          </a>
+          <a href="https://www.spotify.com" class="link">
+            <i class="fab fa-spotify"></i>
+            <span>Spotify</span>
+          </a>
+          <a href="https://www.hulu.com" class="link">
+            <i class="fas fa-tv"></i>
+            <span>Hulu</span>
+          </a>
+          <a href="https://www.disneyplus.com" class="link">
+            <i class="fas fa-magic"></i>
+            <span>Disney+</span>
+          </a>
+          <a href="https://www.imdb.com" class="link">
+            <i class="fab fa-imdb"></i>
+            <span>IMDb</span>
+          </a>
+          <a href="https://www.soundcloud.com" class="link">
+            <i class="fab fa-soundcloud"></i>
+            <span>SoundCloud</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="category" id="productivity">
+        <h2>生产力与云服务</h2>
+        <div class="links">
+          <a href="https://www.microsoft.com" class="link">
+            <i class="fab fa-microsoft"></i>
+            <span>Microsoft</span>
+          </a>
+          <a href="https://www.office.com" class="link">
+            <i class="fas fa-file-word"></i>
+            <span>Office</span>
+          </a>
+          <a href="https://www.dropbox.com" class="link">
+            <i class="fab fa-dropbox"></i>
+            <span>Dropbox</span>
+          </a>
+          <a href="https://www.github.com" class="link">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.slack.com" class="link">
+            <i class="fab fa-slack"></i>
+            <span>Slack</span>
+          </a>
+          <a href="https://www.zoom.us" class="link">
+            <i class="fas fa-video"></i>
+            <span>Zoom</span>
+          </a>
+          <a href="https://www.trello.com" class="link">
+            <i class="fab fa-trello"></i>
+            <span>Trello</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="category" id="news">
+        <h2>新闻与资讯</h2>
+        <div class="links">
+          <a href="https://www.bbc.com" class="link">
             <i class="fas fa-newspaper"></i>
-            <span>The Verge</span>
+            <span>BBC</span>
           </a>
-          <a href="https://arstechnica.com" class="link">
-            <i class="fas fa-flask"></i>
-            <span>Ars Technica</span>
+          <a href="https://www.cnn.com" class="link">
+            <i class="fas fa-broadcast-tower"></i>
+            <span>CNN</span>
           </a>
-          <a href="https://www.engadget.com" class="link">
-            <i class="fas fa-gamepad"></i>
-            <span>Engadget</span>
+          <a href="https://www.nytimes.com" class="link">
+            <i class="far fa-newspaper"></i>
+            <span>NY Times</span>
           </a>
-          <a href="https://techradar.com" class="link">
-            <i class="fas fa-satellite-dish"></i>
-            <span>TechRadar</span>
+          <a href="https://www.theguardian.com" class="link">
+            <i class="fas fa-shield-alt"></i>
+            <span>The Guardian</span>
+          </a>
+          <a href="https://www.reuters.com" class="link">
+            <i class="fas fa-globe"></i>
+            <span>Reuters</span>
+          </a>
+          <a href="https://www.weather.com" class="link">
+            <i class="fas fa-cloud-sun"></i>
+            <span>Weather.com</span>
           </a>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#search"><i class="fas fa-search"></i> 搜索与信息</a></li>
+      <li><a href="#social-media"><i class="fas fa-users"></i> 社交媒体</a></li>
+      <li><a href="#ecommerce"><i class="fas fa-shopping-cart"></i> 电商与购物</a></li>
+      <li><a href="#entertainment"><i class="fas fa-film"></i> 娱乐与流媒体</a></li>
+      <li><a href="#productivity"><i class="fas fa-laptop-code"></i> 生产力与云服务</a></li>
+      <li><a href="#news"><i class="fas fa-newspaper"></i> 新闻与资讯</a></li>
+    </ul>
   </div>
 
   <script>
@@ -305,6 +504,21 @@
       if (e.key === 'Enter') {
         document.getElementById('search-button').click();
       }
+    });
+
+    document.getElementById('sidebar-toggle').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.querySelector('.container').style.marginRight = document.getElementById('sidebar').classList.contains('open') ? '220px' : '0';
+    });
+
+    // Smooth scrolling for sidebar links
+    document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body></html>
