@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <base href="https://hypernav.tech">
@@ -26,8 +27,7 @@
         .container {
             padding: 20px;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             transition: margin-right 0.3s ease-in-out;
         }
 
@@ -93,7 +93,6 @@
             background-color: #1c2833;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .category h2 {
@@ -102,41 +101,27 @@
             color: var(--accent-color);
         }
 
-        .links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            gap: var(--gap-size);
-        }
-
-        .link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
+        .link-card {
             background-color: #2c3e50;
             border-radius: 10px;
-            padding: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 15px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .link:hover {
+        .link-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .link i {
+        .link-card i {
             font-size: 1.5rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .link span {
-            font-size: 0.8rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
+        .link-card h3 {
+            margin: 0;
+            color: var(--text-color);
         }
 
         .sidebar {
@@ -220,30 +205,6 @@
             #search-input {
                 width: 60%;
             }
-
-            .categories {
-                grid-template-columns: 1fr;
-            }
-
-            .links {
-                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-            }
-
-            .link {
-                padding: 8px;
-            }
-
-            .link i {
-                font-size: 1.2rem;
-            }
-
-            .link span {
-                font-size: 0.7rem;
-            }
-
-            .sidebar {
-                width: 100%;
-            }
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -269,391 +230,342 @@
         <div class="categories">
             <div class="category">
                 <h2 class="category-title" id="ai-search">Ai搜索</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://www.google.com">
-                            <i class="fab fa-google"></i>
-                            <h3>Google</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.bing.com">
-                            <i class="fab fa-microsoft"></i>
-                            <h3>Bing</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://websim.ai/">
-                            <i class="fas fa-search"></i>
-                            <h3>websim</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://chatgpt.com/">
-                            <i class="fab fa-google"></i>
-                            <h3>chatgpt</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.doubao.com/chat/">
-                            <i class="fas fa-paw"></i>
-                            <h3>傻豆包</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://yuanbao.tencent.com/">
-                            <i class="fas fa-robot"></i>
-                            <h3>傻元宝</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://poe.com/">
-                            <i class="fas fa-robot"></i>
-                            <h3>poe</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://claude.ai/">
-                            <i class="fas fa-robot"></i>
-                            <h3>claude</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://chandler.bet/">
-                            <i class="fas fa-robot"></i>
-                            <h3>ChandlerAi</h3>
-                        </a>
-                    </div>
-                </section>
+                <div class="link-card">
+                    <a href="https://www.google.com">
+                        <i class="fab fa-google"></i>
+                        <h3>Google</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.bing.com">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>Bing</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://websim.ai/">
+                        <i class="fas fa-search"></i>
+                        <h3>websim</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://chatgpt.com/">
+                        <i class="fab fa-google"></i>
+                        <h3>chatgpt</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.doubao.com/chat/">
+                        <i class="fas fa-paw"></i>
+                        <h3>傻豆包</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://yuanbao.tencent.com/">
+                        <i class="fas fa-robot"></i>
+                        <h3>傻元宝</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://poe.com/">
+                        <i class="fas fa-robot"></i>
+                        <h3>poe</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://claude.ai/">
+                        <i class="fas fa-robot"></i>
+                        <h3>claude</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://chandler.bet/">
+                        <i class="fas fa-robot"></i>
+                        <h3>ChandlerAi</h3>
+                    </a>
+                </div>
             </div>
 
             <div class="category">
                 <h2 class="category-title" id="social">社交媒体</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://www.facebook.com">
-                            <i class="fab fa-facebook"></i>
-                            <h3>Facebook</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://twitter.com">
-                            <i class="fab fa-twitter"></i>
-                            <h3>Twitter</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.instagram.com">
-                            <i class="fab fa-instagram"></i>
-                            <h3>Instagram</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.linkedin.com">
-                            <i class="fab fa-linkedin"></i>
-                            <h3>LinkedIn</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.tiktok.com">
-                            <i class="fab fa-tiktok"></i>
-                            <h3>TikTok</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.reddit.com">
-                            <i class="fab fa-reddit"></i>
-                            <h3>Reddit</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://github.com/">
-                            <i class="fab fa-github"></i>
-                            <h3>GitHub</h3>
-                        </a>
-                    </div>
-                </section>
+                <div class="link-card">
+                    <a href="https://www.facebook.com">
+                        <i class="fab fa-facebook"></i>
+                        <h3>Facebook</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://twitter.com">
+                        <i class="fab fa-twitter"></i>
+                        <h3>Twitter</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram"></i>
+                        <h3>Instagram</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.linkedin.com">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.tiktok.com">
+                        <i class="fab fa-tiktok"></i>
+                        <h3>TikTok</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.reddit.com">
+                        <i class="fab fa-reddit"></i>
+                        <h3>Reddit</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://github.com/">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                    </a>
+                </div>
             </div>
 
             <div class="category">
                 <h2 class="category-title" id="tools">实用工具</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://translate.google.com">
-                            <i class="fas fa-language"></i>
-                            <h3>Google翻译</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://d.186404.xyz/">
-                            <i class="fas fa-link"></i>
-                            <h3>短链</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://dynv6.com/">
-                            <i class="fas fa-network-wired"></i>
-                            <h3>dynv6</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://fast.com/">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <h3>网速测试</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.cloudns.net/">
-                            <i class="fas fa-cloud"></i>
-                            <h3>Cloudns</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.cloudflare.com/zh-cn/">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Cloudflare</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://ygpy.net/">
-                            <i class="fas fa-user-friends"></i>
-                            <h3>一个朋友</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://notebooklm.google/">
-                            <i class="fas fa-book"></i>
-                            <h3>谷歌笔记</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://email.ml/">
-                            <i class="fas fa-envelope"></i>
-                            <h3>临时邮箱</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.ahhhhfs.com/">
-                            <i class="fas fa-blog"></i>
-                            <h3>A姐</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://ip.sb/">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h3>IP查询</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://img.186404.xyz/">
-                            <i class="fas fa-image"></i>
-                            <h3>图床</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.site.ac/">
-                            <i class="fas fa-exchange-alt"></i>
-                            <h3>Site域名转发</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://zh.go-to-library.sk/">
-                            <i class="fas fa-book-reader"></i>
-                            <h3>Z-Library</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://nic.us.kg/">
-                            <i class="fas fa-globe"></i>
-                            <h3>us.kg域名</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.spaceship.com/zh/">
-                            <i class="fas fa-space-shuttle"></i>
-                            <h3>Spaceship廉价域名</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://fontawesome.com/">
-                            <i class="fas fa-icons"></i>
-                            <h3>FontAwesome图标</h3>
-                        </a>
-                    </div>
-                </section>
+                <div class="link-card">
+                    <a href="https://translate.google.com">
+                        <i class="fas fa-language"></i>
+                        <h3>Google翻译</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://d.186404.xyz/">
+                        <i class="fas fa-link"></i>
+                        <h3>短链</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://dynv6.com/">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>dynv6</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://fast.com/">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>网速测试</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.cloudns.net/">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloudns</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.cloudflare.com/zh-cn/">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cloudflare</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://ygpy.net/">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>一个朋友</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://notebooklm.google/">
+                        <i class="fas fa-book"></i>
+                        <h3>谷歌笔记</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://email.ml/">
+                        <i class="fas fa-envelope"></i>
+                        <h3>临时邮箱</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.ahhhhfs.com/">
+                        <i class="fas fa-blog"></i>
+                        <h3>A姐</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://ip.sb/">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>IP查询</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://img.186404.xyz/">
+                        <i class="fas fa-image"></i>
+                        <h3>图床</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.site.ac/">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Site域名转发</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://zh.go-to-library.sk/">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Z-Library</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://nic.us.kg/">
+                        <i class="fas fa-globe"></i>
+                        <h3>us.kg域名</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.spaceship.com/zh/">
+                        <i class="fas fa-space-shuttle"></i>
+                        <h3>Spaceship廉价域名</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://fontawesome.com/">
+                        <i class="fas fa-icons"></i>
+                        <h3>FontAwesome图标</h3>
+                    </a>
+                </div>
             </div>
 
             <div class="category">
                 <h2 class="category-title" id="tech-news">科技资讯</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://www.techcrunch.com">
-                            <i class="fas fa-newspaper"></i>
-                            <h3>TechCrunch</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.wired.com">
-                            <i class="fas fa-bolt"></i>
-                            <h3>Wired</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.theverge.com">
-                            <i class="fas fa-laptop"></i>
-                            <h3>The Verge</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://arstechnica.com">
-                            <i class="fas fa-rocket"></i>
-                            <h3>Ars Technica</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.engadget.com">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h3>Engadget</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://techradar.com">
-                            <i class="fas fa-satellite"></i>
-                            <h3>TechRadar</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://b.186404.xyz/">
-                            <i class="fas fa-blog"></i>
-                            <h3>科技博客</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.cnbeta.com.tw/">
-                            <i class="fas fa-info-circle"></i>
-                            <h3>cnbeta</h3>
-                        </a>
-                    </div>
-                </section>
+                <div class="link-card">
+                    <a href="https://www.techcrunch.com">
+                        <i class="fas fa-newspaper"></i>
+                        <h3>TechCrunch</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.wired.com">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Wired</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.theverge.com">
+                        <i class="fas fa-laptop"></i>
+                        <h3>The Verge</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://arstechnica.com">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Ars Technica</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.engadget.com">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Engadget</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://techradar.com">
+                        <i class="fas fa-satellite"></i>
+                        <h3>TechRadar</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://b.186404.xyz/">
+                        <i class="fas fa-blog"></i>
+                        <h3>科技博客</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.cnbeta.com.tw/">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>cnbeta</h3>
+                    </a>
+                </div>
             </div>
 
             <div class="category">
                 <h2 class="category-title" id="cloud-storage">云存储</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://www.dropbox.com">
-                            <i class="fas fa-cloud"></i>
-                            <h3>Dropbox</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://drive.google.com">
-                            <i class="fab fa-google-drive"></i>
-                            <h3>Google Drive</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://onedrive.live.com">
-                            <i class="fab fa-microsoft"></i>
-                            <h3>OneDrive</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.box.com">
-                            <i class="fas fa-box"></i>
-                            <h3>Box</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.mediafire.com">
-                            <i class="fas fa-file-alt"></i>
-                            <h3>MediaFire</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://mega.nz">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <h3>MEGA</h3>
-                        </a>
-                    </div>
-                </section>
+                <div class="link-card">
+                    <a href="https://www.dropbox.com">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Dropbox</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://drive.google.com">
+                        <i class="fab fa-google-drive"></i>
+                        <h3>Google Drive</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://onedrive.live.com">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>OneDrive</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.box.com">
+                        <i class="fas fa-box"></i>
+                        <h3>Box</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.mediafire.com">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>MediaFire</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://mega.nz">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>MEGA</h3>
+                    </a>
+                </div>
             </div>
 
             <div class="category">
                 <h2 class="category-title" id="email">电子邮箱</h2>
-                <section class="link-grid">
-                    <div class="link-card">
-                        <a href="https://mail.google.com">
-                            <i class="fas fa-envelope"></i>
-                            <h3>Gmail</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://outlook.live.com">
-                            <i class="fab fa-microsoft"></i>
-                            <h3>Outlook</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://22.do/">
-                            <i class="fas fa-envelope-open"></i>
-                            <h3>GMail临时邮箱</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.agogmail.com/">
-                            <i class="fas fa-envelope-square"></i>
-                            <h3>临时gMail</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.protonmail.com">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>ProtonMail</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://mail.qq.com">
-                            <i class="fab fa-qq"></i>
-                            <h3>QQ邮箱</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.emailnator.com/">
-                            <i class="fas fa-at"></i>
-                            <h3>临时G邮箱</h3>
-                        </a>
-                    </div>
-                    <div class="link-card">
-                        <a href="https://www.linshigmail.com/">
-                            <i class="fas fa-mail-bulk"></i>
-                            <h3>临时谷歌邮箱</h3>
-                        </a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#ai-search"><i class="fas fa-search"></i> Ai搜索</a></li>
-            <li><a href="#social"><i class="fas fa-users"></i> 社交媒体</a></li>
-            <li><a href="#tools"><i class="fas fa-toolbox"></i> 实用工具</a></li>
-            <li><a href="#tech-news"><i class="fas fa-laptop-code"></i> 科技资讯</a></li>
-            <li><a href="#cloud-storage"><i class="fas fa-cloud"></i> 云存储</a></li>
-            <li><a href="#email"><i class="fas fa-envelope"></i> 电子邮箱</a></li>
-        </ul>
-    </div>
-
-    <script>
-        document.getElementById('search-button').addEventListener('click', function () {
-            var query = document.getElementById('search-input').value;
-            if (query.startsWith('http://') || query.startsWith('https://')) {
-                window.location.href = query;
-            } else {
-                window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
-            }
+                <div class="link-card">
+                    <a href="https://mail.google.com">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Gmail</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://outlook.live.com">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>Outlook</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://22.do/">
+                        <i class="fas fa-envelope-open"></i>
+                        <h3>GMail临时邮箱</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.agogmail.com/">
+                        <i class="fas fa-envelope-square"></i>
+                        <h3>临时gMail</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.protonmail.com">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>ProtonMail</h3>
+                    </a>
+                </div>
+                <div class="link-card">
+                    <a href="https://mail.qq.com">
+                        <i class="fab fa-qq"></i>
+                        <h            }
         });
 
         document.getElementById('search-input').addEventListener('keypress', function (e) {
@@ -667,7 +579,7 @@
             document.querySelector('.container').style.marginRight = document.getElementById('sidebar').classList.contains('open') ? '220px' : '0';
         });
 
-        // Smooth scrolling for sidebar links
+        // 平滑滚动效果
         document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
