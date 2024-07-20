@@ -1,0 +1,336 @@
+
+<html><head><base href="https://webnavhub.com/"><title>WebNav Hub - Top 50 Popular Websites</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  :root {
+    --primary-color: #e53238;
+    --secondary-color: #0064d2;
+    --tertiary-color: #f5af02;
+    --quaternary-color: #86b817;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0654ba;
+    --border-color: #e5e5e5;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+  .logo span:nth-child(2) { color: var(--secondary-color); }
+  .logo span:nth-child(3) { color: var(--tertiary-color); }
+  .logo span:nth-child(4) { color: var(--quaternary-color); }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
+                0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+  }
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .category-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0 15px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  .link-card {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .link-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .link-card i {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: var(--link-color);
+  }
+  .link-card h3 {
+    font-size: 12px;
+    margin-top: 5px;
+    color: var(--link-color);
+  }
+  @media (max-width: 768px) {
+    .link-grid {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    .link-card i {
+      font-size: 28px;
+    }
+    .link-card h3 {
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span>W</span><span>e</span><span>b</span><span>Nav</span>
+    </div>
+    <nav>
+      <a href="#search">Search</a>
+      <a href="#social">Social</a>
+      <a href="#ecommerce">E-commerce</a>
+      <a href="#entertainment">Entertainment</a>
+      <a href="#tech">Tech</a>
+    </nav>
+  </header>
+  <main>
+    <h2 class="category-title" id="search">Search Engines</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.google.com">
+        <i class="fab fa-google"></i>
+        <h3>Google</h3>
+      </a>
+      <a class="link-card" href="https://www.bing.com">
+        <i class="fab fa-microsoft"></i>
+        <h3>Bing</h3>
+      </a>
+      <a class="link-card" href="https://www.yahoo.com">
+        <i class="fab fa-yahoo"></i>
+        <h3>Yahoo</h3>
+      </a>
+      <a class="link-card" href="https://www.baidu.com">
+        <i class="fas fa-paw"></i>
+        <h3>Baidu</h3>
+      </a>
+    </section>
+    
+    <h2 class="category-title" id="social">Social Networks</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.facebook.com">
+        <i class="fab fa-facebook"></i>
+        <h3>Facebook</h3>
+      </a>
+      <a class="link-card" href="https://www.instagram.com">
+        <i class="fab fa-instagram"></i>
+        <h3>Instagram</h3>
+      </a>
+      <a class="link-card" href="https://www.twitter.com">
+        <i class="fab fa-twitter"></i>
+        <h3>Twitter</h3>
+      </a>
+      <a class="link-card" href="https://www.linkedin.com">
+        <i class="fab fa-linkedin"></i>
+        <h3>LinkedIn</h3>
+      </a>
+      <a class="link-card" href="https://www.tiktok.com">
+        <i class="fab fa-tiktok"></i>
+        <h3>TikTok</h3>
+      </a>
+      <a class="link-card" href="https://www.pinterest.com">
+        <i class="fab fa-pinterest"></i>
+        <h3>Pinterest</h3>
+      </a>
+      <a class="link-card" href="https://www.reddit.com">
+        <i class="fab fa-reddit"></i>
+        <h3>Reddit</h3>
+      </a>
+      <a class="link-card" href="https://www.whatsapp.com">
+        <i class="fab fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+      </a>
+    </section>
+    
+    <h2 class="category-title" id="ecommerce">E-commerce</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.amazon.com">
+        <i class="fab fa-amazon"></i>
+        <h3>Amazon</h3>
+      </a>
+      <a class="link-card" href="https://www.ebay.com">
+        <i class="fab fa-ebay"></i>
+        <h3>eBay</h3>
+      </a>
+      <a class="link-card" href="https://www.alibaba.com">
+        <i class="fas fa-shopping-bag"></i>
+        <h3>Alibaba</h3>
+      </a>
+      <a class="link-card" href="https://www.walmart.com">
+        <i class="fas fa-store"></i>
+        <h3>Walmart</h3>
+      </a>
+      <a class="link-card" href="https://www.etsy.com">
+        <i class="fas fa-gift"></i>
+        <h3>Etsy</h3>
+      </a>
+    </section>
+    
+    <h2 class="category-title" id="entertainment">Entertainment</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.youtube.com">
+        <i class="fab fa-youtube"></i>
+        <h3>YouTube</h3>
+      </a>
+      <a class="link-card" href="https://www.netflix.com">
+        <i class="fas fa-film"></i>
+        <h3>Netflix</h3>
+      </a>
+      <a class="link-card" href="https://www.spotify.com">
+        <i class="fab fa-spotify"></i>
+        <h3>Spotify</h3>
+      </a>
+      <a class="link-card" href="https://www.twitch.tv">
+        <i class="fab fa-twitch"></i>
+        <h3>Twitch</h3>
+      </a>
+      <a class="link-card" href="https://www.hulu.com">
+        <i class="fas fa-tv"></i>
+        <h3>Hulu</h3>
+      </a>
+      <a class="link-card" href="https://www.disneyplus.com">
+        <i class="fas fa-magic"></i>
+        <h3>Disney+</h3>
+      </a>
+    </section>
+    
+    <h2 class="category-title" id="tech">Technology</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.github.com">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+      </a>
+      <a class="link-card" href="https://stackoverflow.com">
+        <i class="fab fa-stack-overflow"></i>
+        <h3>Stack Overflow</h3>
+      </a>
+      <a class="link-card" href="https://www.apple.com">
+        <i class="fab fa-apple"></i>
+        <h3>Apple</h3>
+      </a>
+      <a class="link-card" href="https://www.microsoft.com">
+        <i class="fab fa-microsoft"></i>
+        <h3>Microsoft</h3>
+      </a>
+      <a class="link-card" href="https://www.adobe.com">
+        <i class="fab fa-adobe"></i>
+        <h3>Adobe</h3>
+      </a>
+    </section>
+
+    <h2 class="category-title">More Popular Sites</h2>
+    <section class="link-grid">
+      <a class="link-card" href="https://www.wikipedia.org">
+        <i class="fab fa-wikipedia-w"></i>
+        <h3>Wikipedia</h3>
+      </a>
+      <a class="link-card" href="https://www.cnn.com">
+        <i class="fas fa-newspaper"></i>
+        <h3>CNN</h3>
+      </a>
+      <a class="link-card" href="https://www.bbc.com">
+        <i class="fas fa-broadcast-tower"></i>
+        <h3>BBC</h3>
+      </a>
+      <a class="link-card" href="https://www.nytimes.com">
+        <i class="far fa-newspaper"></i>
+        <h3>NY Times</h3>
+      </a>
+      <a class="link-card" href="https://www.paypal.com">
+        <i class="fab fa-paypal"></i>
+        <h3>PayPal</h3>
+      </a>
+      <a class="link-card" href="https://www.dropbox.com">
+        <i class="fab fa-dropbox"></i>
+        <h3>Dropbox</h3>
+      </a>
+      <a class="link-card" href="https://www.wordpress.com">
+        <i class="fab fa-wordpress"></i>
+        <h3>WordPress</h3>
+      </a>
+      <a class="link-card" href="https://www.imdb.com">
+        <i class="fab fa-imdb"></i>
+        <h3>IMDb</h3>
+      </a>
+      <a class="link-card" href="https://www.quora.com">
+        <i class="fab fa-quora"></i>
+        <h3>Quora</h3>
+      </a>
+      <a class="link-card" href="https://www.craigslist.org">
+        <i class="fas fa-list"></i>
+        <h3>Craigslist</h3>
+      </a>
+      <a class="link-card" href="https://www.booking.com">
+        <i class="fas fa-hotel"></i>
+        <h3>Booking.com</h3>
+      </a>
+      <a class="link-card" href="https://www.tripadvisor.com">
+        <i class="fas fa-plane"></i>
+        <h3>TripAdvisor</h3>
+      </a>
+      <a class="link-card" href="https://www.office.com">
+        <i class="fas fa-file-word"></i>
+        <h3>Office</h3>
+      </a>
+      <a class="link-card" href="https://www.indeed.com">
+        <i class="fas fa-briefcase"></i>
+        <h3>Indeed</h3>
+      </a>
+    </section>
+  </main>
+</body></html>
