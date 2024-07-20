@@ -1,5 +1,6 @@
 
 <html><head><base href="https://www.netflixnav.com/"><title>NetflixNav - Your Internet Gateway</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #141414; color: #fff; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -9,18 +10,6 @@ header { display: flex; justify-content: center; align-items: center; padding: 2
 .category { margin-bottom: 30px; }
 h2 { color: #e5e5e5; font-size: 1.4em; margin-bottom: 10px; border-bottom: 1px solid #e50914; padding-bottom: 5px; }
 .site-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; }
-
-@media (max-width: 768px) {
-  .site-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
-  .site-item i { font-size: 20px; }
-  .site-item p { font-size: 0.7em; }
-}
-
-@media (max-width: 480px) {
-  .site-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); }
-  .site-item i { font-size: 18px; }
-  .site-item p { font-size: 0.6em; }
-}
 .site-item { text-align: center; transition: transform 0.3s ease; text-decoration: none; color: #fff; display: block; }
 .site-item:hover { transform: scale(1.05); }
 .site-item i { font-size: 24px; color: #e50914; margin-bottom: 5px; }
@@ -31,17 +20,42 @@ footer a:hover { text-decoration: underline; }
 #google-search { width: 100%; max-width: 584px; margin: 20px auto; }
 #google-search input { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #303134; border-radius: 24px; background-color: #202124; color: #e8eaed; box-sizing: border-box; }
 
+@media (max-width: 1200px) {
+  .container { padding: 15px; }
+  .site-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+}
+
+@media (max-width: 992px) {
+  .logo { font-size: 2.2em; }
+  .site-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+  .site-item i { font-size: 22px; }
+  .site-item p { font-size: 0.75em; }
+}
+
 @media (max-width: 768px) {
   .container { padding: 10px; }
   .logo { font-size: 2em; }
   h2 { font-size: 1.2em; }
+  .site-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; }
+  .site-item i { font-size: 20px; }
+  .site-item p { font-size: 0.7em; }
+  #google-search input { font-size: 14px; padding: 8px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .container { padding: 5px; }
   .logo { font-size: 1.8em; }
   h2 { font-size: 1em; }
-  #google-search input { font-size: 14px; padding: 8px; }
+  .site-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 8px; }
+  .site-item i { font-size: 18px; }
+  .site-item p { font-size: 0.6em; }
+  footer a { display: block; margin: 5px 0; }
+}
+
+@media (max-width: 360px) {
+  .site-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 5px; }
+  .site-item i { font-size: 16px; }
+  .site-item p { font-size: 0.5em; }
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
